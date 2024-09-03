@@ -18,7 +18,7 @@ Note: Marked as virus until I can get it signed, just complie for now!
 1. Download the repository as a zip file.
 2. Extract the zip file.
 3. Open the project folder, then open the subfolder called `EXE`.
-4. Run the `FixMyCorruptWindows.exe` file.
+4. Run the `FMCW-SFML.exe` file.
 5. If your antivirus or Windows flags the file as unsafe, you can click "More info" and choose "Run anyway".
 
 ### Method 2: Compiling the files yourself
