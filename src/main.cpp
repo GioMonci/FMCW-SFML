@@ -7,20 +7,19 @@ TextAndFont myTextAndFont;
 Buttons mainButtons;
 sf::Event mainEvent;
 sf::Event secondEvent;
-
-
-bool isMouseOverButton(sf::RectangleShape& button, sf::Vector2i mousePos){
-    sf::FloatRect bounds = button.getGlobalBounds();
-    return bounds.contains(static_cast<sf::Vector2f>(mousePos));
-}
+bool isMouseOverButton(sf::RectangleShape& button, sf::Vector2i mousePos);
 
 int main()
 {
     // create win
+    // idk if this method of creating objs is cooked or not
     mainWin.createWindow();
     myTextAndFont.initTextAndFont();
     mainButtons.createYesButton();
     mainButtons.createNoButton();
+    mainButtons.createNotBadButton();
+    mainButtons.createBadButton();
+    mainButtons.createCookedButton();
 
     // run pgrm as long as win is open
     while(mainWin.window.isOpen()){
@@ -59,12 +58,42 @@ int main()
                 if(secondEvent.type == sf::Event::Closed){
                     secondWin.window.close();
                 }
+                // if mouse button is pressed
+                else if(secondEvent.type == sf::Event::MouseButtonPressed){
+                    //if the left mouse button is pressed
+                    if(secondEvent.mouseButton.button == sf::Mouse::Left){
+                        std::cout << "clicked" << std::endl;
+                        //get mouse position
+                        sf::Vector2i mousePos = sf::Mouse::getPosition(secondWin.window);
+                        // if mouse is over NotBad button
+                        if(isMouseOverButton(mainButtons.notBadButton, mousePos)){
+                            std::cout << "over notbad" << std::endl;
+                            //secondWin.window.close();
+                        }
+                        // if mouse is over Bad button
+                        if(isMouseOverButton(mainButtons.badButton, mousePos)){
+                            std::cout << "over bad" << std::endl;
+                            //secondWin.window.close();
+                        }
+                        // if mouse is over Cooked button
+                        if(isMouseOverButton(mainButtons.cookedButton, mousePos)){
+                            std::cout << "over cooked" << std::endl;
+                            //secondWin.window.close();
+                        }
+                    }
+                }
             }
             //second win drawings
             // clear win w/ black
             secondWin.window.clear(sf::Color::White);
             //draw here
             secondWin.window.draw(myTextAndFont.askChoiceMessage);
+            secondWin.window.draw(mainButtons.notBadButton);
+            secondWin.window.draw(myTextAndFont.notBadMess);
+            secondWin.window.draw(mainButtons.badButton);
+            secondWin.window.draw(myTextAndFont.badMess);
+            secondWin.window.draw(mainButtons.cookedButton);
+            secondWin.window.draw(myTextAndFont.cookedMess);
             //end current frame
             secondWin.window.display();
         }
@@ -82,4 +111,9 @@ int main()
     }
 
     return 0;
+}
+
+bool isMouseOverButton(sf::RectangleShape& button, sf::Vector2i mousePos){
+    sf::FloatRect bounds = button.getGlobalBounds();
+    return bounds.contains(static_cast<sf::Vector2f>(mousePos));
 }

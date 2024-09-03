@@ -66,21 +66,21 @@ void TextAndFont::initTextAndFont()
     notBadMess.setCharacterSize(16);
     notBadMess.setFillColor(sf::Color::Black);
     notBadMess.setStyle(sf::Text::Bold);
-    notBadMess.setString("No");
-    notBadMess.setPosition(sf::Vector2f(535.f, 485.f));
+    notBadMess.setString("Not Bad");
+    notBadMess.setPosition(sf::Vector2f(165.f, 485.f));
 
     badMess.setFont(font);
     badMess.setCharacterSize(16);
     badMess.setFillColor(sf::Color::Black);
     badMess.setStyle(sf::Text::Bold);
-    badMess.setString("No");
-    badMess.setPosition(sf::Vector2f(535.f, 485.f));
+    badMess.setString("Bad");
+    badMess.setPosition(sf::Vector2f(365.f, 485.f));
 
     cookedMess.setFont(font);
     cookedMess.setCharacterSize(16);
     cookedMess.setFillColor(sf::Color::Black);
     cookedMess.setStyle(sf::Text::Bold);
-    cookedMess.setString("No");
+    cookedMess.setString("Cooked");
     cookedMess.setPosition(sf::Vector2f(535.f, 485.f));
 
 }

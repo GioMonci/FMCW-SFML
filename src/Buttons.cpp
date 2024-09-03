@@ -17,14 +17,14 @@ void Buttons::createNoButton()
 void Buttons::createNotBadButton()
 {
     notBadButton.setSize(sf::Vector2f(100.f, 50.f));
-    notBadButton.setPosition(sf::Vector2f(500.f, 475.f));
+    notBadButton.setPosition(sf::Vector2f(150.f, 475.f));
     notBadButton.setFillColor(sf::Color::Green);
 }
 
 void Buttons::createBadButton()
 {
     badButton.setSize(sf::Vector2f(100.f, 50.f));
-    badButton.setPosition(sf::Vector2f(500.f, 475.f));
+    badButton.setPosition(sf::Vector2f(350.f, 475.f));
     badButton.setFillColor(sf::Color::Yellow);
 }
 
